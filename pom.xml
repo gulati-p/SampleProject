@@ -14,8 +14,8 @@
     <objenesis.version>2.5.1</objenesis.version>
   </properties>
   <build>
-    <sourceDirectory>src</sourceDirectory>
-    <testSourceDirectory>test/</testSourceDirectory>
+    <sourceDirectory>src/main/groovy</sourceDirectory>
+    <testSourceDirectory>src/test/groovy</testSourceDirectory>
     <plugins>
     	<plugin>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -54,22 +54,23 @@
         <configuration>
           <sources>
             <source>
-              <directory>${project.basedir}/src</directory>
+              <directory>${project.basedir}/src/main/groovy</directory>
               <includes>
-                <include>**/*.groovy</include>
+                <include>*.groovy</include>
               </includes>
             </source>
           </sources>
           <testSources>
             <testSource>
-              <directory>${project.basedir}/test</directory>
+              <directory>${project.basedir}src/test/groovy</directory>
               <includes>
-                <include>**/*.groovy</include>
+                <include>*.groovy</include>
               </includes>
             </testSource>
           </testSources>
         </configuration>
       </plugin>
+
     </plugins>
   </build>
   <dependencies>
@@ -129,13 +130,12 @@
                 <phase>initialize</phase>
                 <goals>
                   <goal>setup</goal>
-                  <goal>aggregate</goal>
                 </goals>
               </execution>
               <execution>
-                <id>clover-report</id>
                 <phase>verify</phase>
                 <goals>
+                  <goal>aggregate</goal>
                   <goal>clover</goal>
                 </goals>
               </execution>

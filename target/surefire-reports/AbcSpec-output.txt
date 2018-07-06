@@ -1,1 +1,0 @@
-Creating new database at '/Users/pooja.gulati/SampleProject/target/clover/clover.db'.
